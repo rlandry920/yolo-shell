@@ -3,13 +3,17 @@ import os
 from PIL import Image
 import matplotlib.pyplot as plt
 
-picture=raw_input('What picture do you want?') 
+import sys
 
+if( len(sys.argv)==1):
+    picture=raw_input('What picture do you want?') 
+else:
+    picture=str(sys.argv[1])
 
 picCount=0;
 all_objects={}
 slices=[]
-pictureName="data/%s.jpg"%picture
+pictureName="data/testingPictures/%s.jpg"%picture
 realPicture=Image.open(pictureName)
 picWidth=realPicture.width/3
  
@@ -41,11 +45,15 @@ while (picCount<3):
 
 
 
-finalImage.show()
+#finalImage.show()
+finalImage.save("data/labeled/%s with labels.jpg"%picture)
+
+
 for key in all_objects.keys():
     print key,":",all_objects[key]
     
 plt.bar(range(len(all_objects)), all_objects.values(), align='center')
 plt.xticks(range(len(all_objects)), all_objects.keys())
 
-plt.show() 
+#plt.show()
+plt.savefig("data/histograms/%s graph.jpg"%picture)
