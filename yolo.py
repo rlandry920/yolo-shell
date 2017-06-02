@@ -45,8 +45,8 @@ while (picCount<3):
 
 
 
-#finalImage.show()
-finalImage.save("data/labeled/%s with labels.jpg"%picture)
+finalImage.show()
+#finalImage.save("data/labeled/%s with labels.jpg"%picture)
 
 
 for key in all_objects.keys():
@@ -55,5 +55,5 @@ for key in all_objects.keys():
 plt.bar(range(len(all_objects)), all_objects.values(), align='center')
 plt.xticks(range(len(all_objects)), all_objects.keys())
 
-#plt.show()
-plt.savefig("data/histograms/%s graph.jpg"%picture)
+plt.show()
+#plt.savefig("data/histograms/%s graph.jpg"%picture)
